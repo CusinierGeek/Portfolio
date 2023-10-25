@@ -6,7 +6,7 @@
       <li><router-link to="/#home" class="glitch" data-text="Home">Home</router-link></li>
       <li><router-link to="/#skills" class="glitch" data-text="About">skills</router-link></li>
       <li>
-        <router-link to="/#school-projects" class="glitch" data-text="Hover Over Me">Projects</router-link>
+        <router-link to="/#projects" class="glitch" data-text="Hover Over Me">Projects</router-link>
       </li>
       <li>
         <router-link to="/#contact" class="glitch" data-text="Hover Over Me">Contact</router-link>
@@ -50,6 +50,28 @@
   justify-content: center
   align-items: center
   background-color: #0008
+
+@media (min-width:1024px )
+  .nav
+    top: 25%
+    left: 5%
+    width: 5%
+    height: 60%
+    background: none
+   
+  
+
+  .nav-links
+    flex-direction: column
+    height: 100%
+    justify-content: space-around
+    align-content: center
+    text-align: center
+   
+    
+    
+    
+   
 
 @media (max-width: 900px)
   .nav

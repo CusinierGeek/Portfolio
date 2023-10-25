@@ -11,8 +11,6 @@ import { ref, onMounted } from 'vue'
 const router = useRouter()
 const target = ref(null)
 const target2 = ref(null)
-const home = ref(null)
-const projects = ref(null)
 
 const selectProject = (projectName: string) => {
   projectAnimation.value = true
@@ -21,9 +19,6 @@ const selectProject = (projectName: string) => {
   }, 1000)
 }
 
-onMounted(() => {
-
-})
 const active = ref(false)
 
 useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
@@ -38,7 +33,7 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
 <template>
   <div class="content-container" :class="{ 'project-animation': projectAnimation }">
     <div id="content" class="content">
-      <div ref="home" id="home" class="welcome">
+      <div id="home" class="welcome">
         <img
           :class="{ active: active }"
           ref="target"
@@ -73,10 +68,11 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
             <CircleProgress :percentage="90" :circleSize="120" :fontSize="3" skill="git" />
           </div>
         </div>
-        <div ref="projects" class="school-container">
+        <div class="school-container">
           <div class="school-title">
             <h2>My School Projects</h2>
             <img
+              id="projects"
               :class="{ active: active }"
               ref="target2"
               src="@/shared/assets/images/astro-laptop.png"
@@ -85,13 +81,13 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
             />
           </div>
           <div id="school-projects">
-            <div class="pure-project" @click="selectProject('pure-cosmetic')">
+            <div class="pure-project" @click="selectProject('Pure-cosmetic')">
               <PurePlanet />
-              <p>pure-cosmetic</p>
+              <p>Pure-cosmetic</p>
             </div>
-            <div class="planet3" @click="selectProject('planet3')">
+            <div class="planet3" @click="selectProject('Hockey Cards')">
               <Planet3 />
-              <p>planet3</p>
+              <p>Hockey cards</p>
             </div>
 
             <div class="planet2" @click="selectProject('planet2')">

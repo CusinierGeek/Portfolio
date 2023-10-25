@@ -7,6 +7,11 @@ const router = createRouter({
       const section = document.querySelector(to.hash)
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' })
+        setTimeout(() => {
+          router.replace({ hash: '' })
+        }, 1000)
+
+
       }
     }
     else {

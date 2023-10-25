@@ -5,10 +5,16 @@ const router = useRouter()
 const projectName = router.currentRoute.value.params.projectName
 const projectAnimation = ref(false)
 const pureImage = '/src/shared/assets/images/pure-cosmetic.png'
+const hockeyCardsImage = '/src/shared/assets/images/hockeycards.png'
 
 const projectSite = () => {
-  window.open('https://pure-cosmetic.ca')
+  if (projectName === 'Pure-cosmetic') {
+    window.open('https://pure-cosmetic.ca')
+  } else if (projectName === 'Hockey Cards') {
+    window.open('https://cusiniergeek.github.io/HockeyCards/')
+  }
 }
+
 
 if (projectName) {
   setTimeout(() => {
@@ -20,28 +26,43 @@ if (projectName) {
 <template>
   <div class="project-container" :class="{ 'project-animation': projectAnimation }">
     <div class="content">
-      <button class="back-button" @click="router.push({ name: 'Home', hash: '#school-projects' })">
+      <button class="back-button" @click="router.push({ name: 'Home', hash: '#projects' })">
         Back
       </button>
       <h2 @click="projectSite" class="title">{{ projectName }}</h2>
       <img
-        v-if="projectName === 'pure-cosmetic'"
         class="project-image"
-        :src="pureImage"
-        alt="pure cosmetic"
+        :src="projectName === 'Pure-cosmetic' ? pureImage : hockeyCardsImage"
+        alt="Pure cosmetic"
         @click="projectSite"
       />
-      <p v-if="projectName === 'pure-cosmetic'">
+
+      <p class="info" v-if="projectName === 'Pure-cosmetic'">
         Pure Cosmetic: A web application developed as part of the Advanced Transactional Web
         Applications course. This project showcases a cosmetic store built using technologies such
         as Vue.js, Express.js, TypeScript, JWT token authentication, and MongoDB for the database.
         Explore the world of cosmetics with this feature-rich e-commerce platform.
       </p>
+      <p class="info" v-if="projectName === 'Hockey Cards'">
+        Hockey Card CRUD: This project was developed as part of the Advanced Web Development course.
+        It is a dynamic application that allows users to manage their hockey card collection,
+        featuring the ability to add, create, delete, and sort cards. The project was originally
+        built using vanilla JavaScript and later refactored into TypeScript as part of the
+        Intermediate Software Quality course, enhancing its code quality and maintainability
+      </p>
+      <a v-if="projectName === 'Pure-cosmetic'" href="https://pure-cosmetic.ca"> Visit the site </a>
+      <a v-if="projectName === 'Hockey Cards'" href="https://cusiniergeek.github.io/HockeyCards/">
+        Visit the site
+      </a>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+a {
+  color: #fff;
+  margin-top: 1rem;
+}
 .project-container {
   display: flex;
   align-items: center;
@@ -51,7 +72,13 @@ if (projectName) {
   transform: scale(0.5);
   transition: all 1s ease-in-out;
   height: 99dvh;
+  margin-top: 1.5rem;
+
   overflow: hidden;
+}
+.info {
+  margin-top: 2rem;
+  text-align: left;
 }
 .project-animation {
   opacity: 1;
@@ -59,6 +86,7 @@ if (projectName) {
   transition: all 1.5s ease-in-out;
 }
 .content {
+  position: relative;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -94,6 +122,14 @@ if (projectName) {
   cursor: pointer;
   &:hover {
     color: #bf40bf;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+  }
+  .project-image {
+    width: 80%;
   }
 }
 </style>
