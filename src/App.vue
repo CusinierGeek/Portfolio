@@ -5,7 +5,7 @@ import NavBar from '@/components/NavBar.vue'
 
 <template>
   <Starfield class="starfield">
-    <NavBar />
+    <!-- <NavBar /> -->
     <RouterView />
   </Starfield>
 </template>

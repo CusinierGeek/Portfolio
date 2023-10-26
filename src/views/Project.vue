@@ -4,8 +4,8 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const projectName = router.currentRoute.value.params.projectName
 const projectAnimation = ref(false)
-const pureImage = '/src/shared/assets/images/pure-cosmetic.png'
-const hockeyCardsImage = '/src/shared/assets/images/hockeycards.png'
+import pureImage from '@/shared/assets/images/pure-cosmetic.png'
+import hockeyCardsImage from '@/shared/assets/images/hockeycards.png'
 
 const projectSite = () => {
   if (projectName === 'Pure-cosmetic') {
@@ -14,7 +14,6 @@ const projectSite = () => {
     window.open('https://cusiniergeek.github.io/HockeyCards/')
   }
 }
-
 
 if (projectName) {
   setTimeout(() => {

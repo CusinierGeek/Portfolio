@@ -90,9 +90,9 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
               <p>Hockey cards</p>
             </div>
 
-            <div class="planet2" @click="selectProject('planet2')">
-              <Planet2 />
-              <p>planet2</p>
+            <div class="planet2" @click="selectProject('Task Manager')">
+              <Planet2  />
+              <p>Task Manager</p>
             </div>
           </div>
         </div>

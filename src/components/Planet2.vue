@@ -9,7 +9,7 @@ const lottieAnimation = ref(null) as any
   <Vue3Lottie
     ref="lottieAnimation"
     :animation-data="Planet2"
-    :height="200"
+    :height="250"
     :speed="0.2"
     :loop="true"
     :autoplay="false"
