@@ -51,27 +51,32 @@
   align-items: center
   background-color: #0008
 
-@media (min-width:1024px )
-  .nav
-    top: 25%
-    left: 5%
-    width: 5%
-    height: 60%
-    background: none
-   
-  
+.hide-nav
+  transform: translateY(-100%)
+  transition: transform 0.3s ease-in-out
 
-  .nav-links
-    flex-direction: column
-    height: 100%
-    justify-content: space-around
-    align-content: center
-    text-align: center
-   
-    
-    
-    
-   
+
+// @media (min-width:1024px )
+//   .nav
+//     top: 25%
+//     left: 5%
+//     width: 5%
+//     height: 60%
+//     background: none
+
+
+
+//   .nav-links
+//     flex-direction: column
+//     height: 100%
+//     justify-content: space-around
+//     align-content: center
+//     text-align: center
+
+
+
+
+
 
 @media (max-width: 900px)
   .nav

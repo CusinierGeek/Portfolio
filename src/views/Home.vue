@@ -31,7 +31,7 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
 </script>
 
 <template>
-  <div class="content-container" :class="{ 'project-animation': projectAnimation }">
+  <div ref="el" class="content-container" :class="{ 'project-animation': projectAnimation }">
     <div id="content" class="content">
       <div id="home" class="welcome">
         <img
@@ -348,6 +348,9 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
+  }
+  .school-container {
+    height: 100%;
   }
 
   #school-projects {
