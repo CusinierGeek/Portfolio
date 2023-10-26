@@ -70,7 +70,7 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
         </div>
         <div class="school-container">
           <div class="school-title">
-            <h2>My School Projects</h2>
+            <h2>Explore My School Projects</h2>
             <img
               id="projects"
               :class="{ active: active }"

@@ -6,6 +6,7 @@ const projectName = router.currentRoute.value.params.projectName
 const projectAnimation = ref(false)
 import pureImage from '@/shared/assets/images/pure-cosmetic.png'
 import hockeyCardsImage from '@/shared/assets/images/hockeycards.png'
+import taskManagerImage from '@/shared/assets/images/taskmanager.png'
 
 const projectSite = () => {
   if (projectName === 'Pure-cosmetic') {
@@ -13,6 +14,13 @@ const projectSite = () => {
   } else if (projectName === 'Hockey Cards') {
     window.open('https://cusiniergeek.github.io/HockeyCards/')
   }
+}
+
+const handleBack = () => {
+  projectAnimation.value = false
+  setTimeout(() => {
+    router.push({ name: 'Home', hash: '#projects' })
+  }, 1000)
 }
 
 if (projectName) {
@@ -25,13 +33,17 @@ if (projectName) {
 <template>
   <div class="project-container" :class="{ 'project-animation': projectAnimation }">
     <div class="content">
-      <button class="back-button" @click="router.push({ name: 'Home', hash: '#projects' })">
-        Back
-      </button>
+      <button class="back-button" @click="handleBack">Back</button>
       <h2 @click="projectSite" class="title">{{ projectName }}</h2>
       <img
         class="project-image"
-        :src="projectName === 'Pure-cosmetic' ? pureImage : hockeyCardsImage"
+        :src="
+          projectName === 'Pure-cosmetic'
+            ? pureImage
+            : projectName === 'Hockey Cards'
+            ? hockeyCardsImage
+            : taskManagerImage
+        "
         alt="Pure cosmetic"
         @click="projectSite"
       />
@@ -49,8 +61,18 @@ if (projectName) {
         built using vanilla JavaScript and later refactored into TypeScript as part of the
         Intermediate Software Quality course, enhancing its code quality and maintainability
       </p>
+      <p class="info" v-if="projectName === 'Task Manager'">
+        Task Manager: This TypeScript project was created during the Software Quality course to
+        implement a robust CRUD system for managing tasks. Utilizing TypeScript classes, it provides
+        a structured and organized approach to handling tasks, making it easier to create, read,
+        update, and delete tasks while maintaining high code quality and adherence to software
+        quality standards.
+      </p>
       <a v-if="projectName === 'Pure-cosmetic'" href="https://pure-cosmetic.ca"> Visit the site </a>
       <a v-if="projectName === 'Hockey Cards'" href="https://cusiniergeek.github.io/HockeyCards/">
+        Visit the site
+      </a>
+      <a v-if="projectName === 'Task Manager'" href="https://cusiniergeek.github.io/TaskManager/">
         Visit the site
       </a>
     </div>
