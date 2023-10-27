@@ -31,8 +31,8 @@ if (projectName) {
 </script>
 
 <template>
-  <div class="content-container" :class="{ 'project-animation': projectAnimation }">
-    <div class="content">
+  <div class="content-container">
+    <div class="content" :class="{ 'project-animation': projectAnimation }">
       <button class="back-button" @click="handleBack">Back</button>
       <h2 @click="projectSite" class="title">{{ projectName }}</h2>
       <img
@@ -84,29 +84,20 @@ a {
   color: #fff;
   margin-top: 1rem;
 }
-.project-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  opacity: 0;
-  transform: scale(0.5);
-  transition: all 1s ease-in-out;
-  height: 99dvh;
-  margin-top: 1.5rem;
-  scroll-behavior: smooth;
-}
+
 .info {
   margin-top: 2rem;
   text-align: left;
 }
 .project-animation {
-  opacity: 1;
-  transform: translate(0px, 0px) scale(1);
-  transition: all 1.5s ease-in-out;
+  opacity: 1 !important;
+  transform: translate(0px, 0px) scale(1) !important;
+  transition: all 1.5s ease-in-out !important;
 }
 .content {
-  position: relative;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transform: scale(0.2);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -163,7 +154,6 @@ a {
   align-items: center;
   margin: 0 auto;
 }
-
 
 .title {
   cursor: pointer;
