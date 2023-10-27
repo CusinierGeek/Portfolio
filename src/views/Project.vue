@@ -140,7 +140,7 @@ a {
 }
 
 .content-container {
-  width: 100%;
+  width: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -172,7 +172,7 @@ a {
   }
 }
 @media (max-width: 768px) {
-  .content {
+  .content-container {
     width: 100%;
   }
   .project-image {
