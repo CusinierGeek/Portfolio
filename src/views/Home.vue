@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import cv from '@/shared/assets/CV-frédérik-noel.pdf'
+import purePlanet from '@/shared/assets/lotties/pureplanet.json'
+import planet3 from '@/shared/assets/lotties/planet3.json'
+import planet2 from '@/shared/assets/lotties/planet2.json'
 import { useRouter } from 'vue-router'
 import CircleProgress from '@/components/progression/CircleProgress.vue'
-import PurePlanet from '@/components/PurePlanet.vue'
-import Planet2 from '@/components/Planet2.vue'
-import Planet3 from '@/components/Planet3.vue'
+import Planet from '@/components/Planet.vue'
 import Welcome from '@/components/Welcome.vue'
 import { useIntersectionObserver } from '@vueuse/core'
 const projectAnimation = ref(false)
@@ -82,16 +84,16 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
           </div>
           <div id="school-projects">
             <div class="planet" @click="selectProject('Pure-cosmetic')">
-              <PurePlanet  />
+              <Planet :lottieJson="purePlanet" :height="200" :speed="0.2" />
               <p>Pure-cosmetic</p>
             </div>
             <div class="planet planet3" @click="selectProject('Hockey Cards')">
-              <Planet3 />
+              <Planet :lottieJson="planet3" :height="230" :speed="0.2" translate="-50%, -50%" />
               <p>Hockey cards</p>
             </div>
 
             <div class="planet planet2" @click="selectProject('Task Manager')">
-              <Planet2 />
+              <Planet :lottieJson="planet2" :height="200" :speed="0.2" />
               <p>Task Manager</p>
             </div>
           </div>
@@ -99,8 +101,8 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
       </div>
 
       <div id="contact" class="contact">
-        <h3 class="category">Contact</h3>
         <div class="contact-container">
+          <h3 class="category">Contact</h3>
           <div class="contact-content">
             <h3>Email</h3>
             <a class="email" href="mailto:frederik.noel@outlook.fr "> frederik.noel@outlook.fr </a>
@@ -114,6 +116,11 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
             <div class="contact-content">
               <a href="https://github.com/CusinierGeek" target="_blank">
                 <img src="@/shared/assets/images/svg/github.svg" alt="" />
+              </a>
+            </div>
+            <div class="contact-content">
+              <a :href="cv" download>
+                <img src="@/shared/assets/images/svg/cv.svg" alt="" />
               </a>
             </div>
           </div>
@@ -211,15 +218,18 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
 }
 
 .contact-container {
-  width: 100%;
+  widows: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .contact {
-  height: 100vh;
+  margin-top: 25rem;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -281,7 +291,7 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
 }
 
 .planet {
-  margin-top:  3rem;
+  margin-top: 3rem;
   z-index: 100;
   cursor: pointer;
   align-self: flex-start;
@@ -331,14 +341,16 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
 
 /*mobile*/
 @media (max-width: 768px) {
-  .links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .contact-content {
+    margin: 0;
     margin-top: 2rem;
   }
+
   .school-container {
     height: 100%;
+  }
+  .contact {
+    margin-top: 0;
   }
 
   #school-projects {
