@@ -81,16 +81,16 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
             />
           </div>
           <div id="school-projects">
-            <div ref="targetPlanet1" class="pure-project" @click="selectProject('Pure-cosmetic')">
-              <PurePlanet class="planet" />
+            <div class="planet" @click="selectProject('Pure-cosmetic')">
+              <PurePlanet  />
               <p>Pure-cosmetic</p>
             </div>
-            <div ref="targetPlanet2" class="planet3" @click="selectProject('Hockey Cards')">
+            <div class="planet planet3" @click="selectProject('Hockey Cards')">
               <Planet3 />
               <p>Hockey cards</p>
             </div>
 
-            <div ref="targetPlanet3" class="planet2" @click="selectProject('Task Manager')">
+            <div class="planet planet2" @click="selectProject('Task Manager')">
               <Planet2 />
               <p>Task Manager</p>
             </div>
@@ -266,7 +266,8 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
   transform: scaleX(1);
 }
 .school-container {
-  width: 100%;
+  margin: 20rem 0;
+  width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -279,10 +280,10 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
   justify-content: center;
 }
 
-.pure-project {
+.planet {
+  margin-top:  3rem;
   z-index: 100;
   cursor: pointer;
-  justify-self: flex-start;
   align-self: flex-start;
   transition: all 0.5s ease-in-out;
   &:hover {
@@ -291,24 +292,10 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
   }
 }
 .planet2 {
-  cursor: pointer;
-  justify-self: flex-start;
   align-self: flex-start;
-  transition: all 0.5s ease-in-out;
-  &:hover {
-    transform: scale(1.1);
-    transition: all 0.5s ease-in-out;
-  }
 }
 .planet3 {
-  cursor: pointer;
-  justify-self: flex-start;
   align-self: flex-end;
-  transition: all 0.5s ease-in-out;
-  &:hover {
-    transform: scale(1.1);
-    transition: all 0.5s ease-in-out;
-  }
 }
 
 .project-animation {
