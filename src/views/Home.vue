@@ -7,7 +7,7 @@ import Planet3 from '@/components/Planet3.vue'
 import Welcome from '@/components/Welcome.vue'
 import { useIntersectionObserver } from '@vueuse/core'
 const projectAnimation = ref(false)
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 const router = useRouter()
 const target = ref(null)
 const target2 = ref(null)
@@ -81,17 +81,17 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
             />
           </div>
           <div id="school-projects">
-            <div class="pure-project" @click="selectProject('Pure-cosmetic')">
-              <PurePlanet />
+            <div ref="targetPlanet1" class="pure-project" @click="selectProject('Pure-cosmetic')">
+              <PurePlanet class="planet" />
               <p>Pure-cosmetic</p>
             </div>
-            <div class="planet3" @click="selectProject('Hockey Cards')">
+            <div ref="targetPlanet2" class="planet3" @click="selectProject('Hockey Cards')">
               <Planet3 />
               <p>Hockey cards</p>
             </div>
 
-            <div class="planet2" @click="selectProject('Task Manager')">
-              <Planet2  />
+            <div ref="targetPlanet3" class="planet2" @click="selectProject('Task Manager')">
+              <Planet2 />
               <p>Task Manager</p>
             </div>
           </div>
@@ -278,6 +278,7 @@ useIntersectionObserver([target, target2], ([{ isIntersecting }]) => {
   align-items: center;
   justify-content: center;
 }
+
 .pure-project {
   z-index: 100;
   cursor: pointer;

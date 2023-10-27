@@ -94,7 +94,6 @@ a {
   transition: all 1s ease-in-out;
   height: 99dvh;
   margin-top: 1.5rem;
-
   overflow: hidden;
 }
 .info {
