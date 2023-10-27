@@ -40,7 +40,7 @@ useIntersectionObserver(targetPlanet3, ([{ isIntersecting }]) => {
 
 @keyframes arrive {
   0% {
-    transform: translate(-50%, -50%) scale(0);
+    transform: translate(50%, -50%) scale(0);
     opacity: 0;
   }
   10% {
